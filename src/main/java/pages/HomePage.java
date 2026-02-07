@@ -14,11 +14,12 @@ public class HomePage {
     private final WebDriver webDriver;
     private final WebDriverWait wait;
 
-    public HomePage(WebDriver webDriver){
+    public HomePage(WebDriver webDriver) {
         this.webDriver = webDriver;
         this.wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
         PageFactory.initElements(webDriver, this);
     }
+
     //Annotations
     @FindBy(xpath = "(//span[contains(text(),'Wikipedia')])[2]")
     private WebElement logo;
@@ -26,12 +27,26 @@ public class HomePage {
     @FindBy(css = ".lang-list-button-text[data-jsl10n=\"portal.language-button-text\"]")
     private WebElement languageButton;
 
+    @FindBy(id = "searchInput")
+    private WebElement searchBar;
 
 
     // Methods
-    public boolean isTitleCorrect (String expectedTitle) {
+    public boolean isTitleCorrect(String expectedTitle) {
         return webDriver.getTitle().equals(expectedTitle);
     }
+
+    public boolean isLanguageButtonVisible() {
+        wait.until(ExpectedConditions.visibilityOf(languageButton));
+        return languageButton.isDisplayed();
+    }
+
+    public boolean isSearchBarVisible() {
+        wait.until(ExpectedConditions.visibilityOf(searchBar));
+        return searchBar.isDisplayed();
+    }
+}
+
 
 //    public void login (String username, String password){
 //        wait.until(ExpectedConditions.visibilityOf(usernameField));
@@ -40,8 +55,3 @@ public class HomePage {
 //        loginButton.click();
 //    }
 
-
-
-
-
-}
