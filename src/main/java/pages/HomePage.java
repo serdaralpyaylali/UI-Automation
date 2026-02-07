@@ -1,11 +1,13 @@
 package pages;
 
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -30,6 +32,11 @@ public class HomePage {
     @FindBy(id = "searchInput")
     private WebElement searchBar;
 
+    @FindBy(id = "searchLanguage")
+    private WebElement searchLanguage;
+
+
+
 
     // Methods
     public boolean isTitleCorrect(String expectedTitle) {
@@ -44,6 +51,16 @@ public class HomePage {
     public boolean isSearchBarVisible() {
         wait.until(ExpectedConditions.visibilityOf(searchBar));
         return searchBar.isDisplayed();
+    }
+
+    public void selectLanguage(String language) {
+        Select select = new Select(searchLanguage);
+
+        select.selectByValue(language);
+    }
+
+    public void searchAndClick(String searchText) {
+        searchBar.sendKeys(searchText + Keys.ENTER);
     }
 }
 
