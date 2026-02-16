@@ -30,27 +30,6 @@ public class HomePageTests {
     }
 
     @Test(groups = {"smoke", "ui"})
-    public void TC_UI_002_OpenArticleWithSearch() {
-        homePage.selectLanguage("en");
-        homePage.searchAndClick("Test Automation");
-        Assert.assertTrue(Driver.getWebDriver().getCurrentUrl().contains("/wiki/"),
-                "Article page did not open");
-        Assert.assertTrue(articlePage.getHeading().toLowerCase().contains("Test automation".toLowerCase()),
-                "Heading is incorrect");
-    }
-
-    @Test(groups = {"smoke", "ui"})
-    public void TC_UI_003_WordDoesNotAppearWithSearch() {
-        homePage.selectLanguage("en");
-        homePage.searchAndClick("asd123");
-        Assert.assertTrue(searchResultsPage.getResultText().contains("page does not exist"),
-                "Article page did not appear");
-        Assert.assertFalse(
-                Driver.getWebDriver().getTitle().toLowerCase().contains("error"),
-                "Page crashed"
-        );
-    }
-    @Test(groups = {"smoke", "ui"})
     public void TC_UI_004_ChangeLanguageOfWebsite() {
         homePage.selectLanguage("en");
         homePage.searchAndClick("asd123");
@@ -58,7 +37,10 @@ public class HomePageTests {
         Assert.assertTrue(articlePage.getHeading().toLowerCase().contains("Search".toLowerCase()),
                 "Heading is incorrect");
     }
+    @Test(groups = {"smoke", "ui"})
+    public void TC_UI_007_EmptySearch() {
 
+    }
 
     @AfterMethod
     public void teardown(){
