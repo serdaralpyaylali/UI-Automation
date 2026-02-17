@@ -51,10 +51,7 @@ public class SearchResultsTest {
 
 
 
-    @Test(groups = {"smoke", "ui"})
-    public void TC_UI_009_AutoSuggestClickCheck() {
 
-    }
 
     @AfterMethod
     public void teardown(){

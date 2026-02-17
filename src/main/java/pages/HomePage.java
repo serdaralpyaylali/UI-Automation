@@ -60,7 +60,6 @@ public class HomePage {
 
     public void selectLanguage(String language) {
         Select select = new Select(searchLanguage);
-
         select.selectByValue(language);
     }
     public void searchOnly(String searchText) {
@@ -78,6 +77,10 @@ public class HomePage {
         wait.until(ExpectedConditions.visibilityOfAllElements(suggestionList));
         return suggestionList.size();
     }
+    public void clickFirstSuggestion() {
+        wait.until(ExpectedConditions.visibilityOfAllElements(suggestionList));
+        suggestionList.get(0).click();
+    }
     public boolean checkResultsAreRelated() {
         if (suggestionList.isEmpty()) {
             throw new RuntimeException("Suggestion list is empty");
@@ -93,12 +96,4 @@ public class HomePage {
         return true;
     }
 }
-
-
-//    public void login (String username, String password){
-//        wait.until(ExpectedConditions.visibilityOf(usernameField));
-//        usernameField.sendKeys(username);
-//        passwordField.sendKeys(password);
-//        loginButton.click();
-//    }
 

@@ -45,6 +45,15 @@ public class HomePageTests {
         Assert.assertTrue(homePage.checkResultsAreRelated(),"Suggestions are not related");
     }
 
+    @Test(groups = {"smoke", "ui"})
+    public void TC_UI_009_AutoSuggestClickCheck() {
+        homePage.selectLanguage("en");
+        homePage.searchOnly("soft");
+        homePage.clickFirstSuggestion();
+        Assert.assertTrue(Driver.getWebDriver().getCurrentUrl().contains("Soft"));
+
+    }
+
     @AfterMethod
     public void teardown(){
         Driver.closeWebDriver();

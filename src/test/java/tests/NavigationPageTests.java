@@ -38,7 +38,13 @@ public class NavigationPageTests {
         articlePage.clickOnAbout();
         Assert.assertTrue(Driver.getWebDriver().getTitle().contains("About"));
         Assert.assertTrue(Driver.getWebDriver().getCurrentUrl().contains("About"));
-
+    }
+    @Test(groups = {"smoke", "ui"})
+    public void TC_UI_012_BrowserBackTest() {
+        homePage.selectLanguage("en");
+        homePage.searchAndClick("Test Automation");
+        Driver.getWebDriver().navigate().back();
+        Assert.assertTrue(Driver.getWebDriver().getCurrentUrl().equals("https://www.wikipedia.org/"), "Wrong URL");
     }
 
     @AfterMethod

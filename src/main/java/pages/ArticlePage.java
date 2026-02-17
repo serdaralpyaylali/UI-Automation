@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.Driver;
 
@@ -34,6 +35,12 @@ public class ArticlePage {
     @FindBy(id = "footer-places-about")
     private WebElement about;
 
+    @FindBy (id = "p-lang-btn-checkbox")
+    private WebElement language;
+
+    @FindBy(css = "li[data-code='tr'] a")
+    private WebElement turkishLanguageLink;
+
     public String getHeading() {
         return heading.getText();
     }
@@ -55,6 +62,13 @@ public class ArticlePage {
     }
     public void clickOnAbout() {
         about.click();
+    }
+    public void clickOnLanguage() {
+        language.click();
+    }
+    public void selectTurkishLanguage() {
+        wait.until(ExpectedConditions.elementToBeClickable(turkishLanguageLink));
+        turkishLanguageLink.click();
     }
     public void scrollToFooter() {
         ((JavascriptExecutor) webDriver)

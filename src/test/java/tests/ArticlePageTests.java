@@ -1,5 +1,6 @@
 package tests;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -31,8 +32,13 @@ public class ArticlePageTests {
                 "Article content is not rendered properly");
     }
     @Test(groups = {"smoke", "ui"})
-    public void TC_UI_010_EmptySearch() {
-
+    public void TC_UI_010_ChangeArticleLanguage() {
+        homePage.selectLanguage("en");
+        homePage.searchAndClick("Test Automation");
+        articlePage.clickOnLanguage();
+        articlePage.selectTurkishLanguage();
+        Assert.assertTrue(Driver.getWebDriver().getCurrentUrl().contains("tr.wikipedia.org"));
+        Assert.assertTrue(Driver.getWebDriver().getTitle().contains("Test otomasyon"));
     }
 
     @Test(groups = {"smoke", "ui"})
