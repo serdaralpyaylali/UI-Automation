@@ -38,8 +38,11 @@ public class HomePageTests {
                 "Heading is incorrect");
     }
     @Test(groups = {"smoke", "ui"})
-    public void TC_UI_007_EmptySearch() {
-
+    public void TC_UI_008_AutoSuggestCheck() {
+        homePage.selectLanguage("en");
+        homePage.searchOnly("soft");
+        Assert.assertNotEquals(homePage.getSuggestionCount(),0,"Suggestions are not displayed");
+        Assert.assertTrue(homePage.checkResultsAreRelated(),"Suggestions are not related");
     }
 
     @AfterMethod

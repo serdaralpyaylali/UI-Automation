@@ -43,9 +43,13 @@ public class SearchResultsTest {
         );
     }
     @Test(groups = {"smoke", "ui"})
-    public void TC_UI_008_AutoSuggestCheck() {
-
+    public void TC_UI_007_EmptySearch() {
+        homePage.selectLanguage("en");
+        homePage.searchEmpty();
+        Assert.assertEquals(searchResultsPage.getSearchresultCount(),0,"There should be no results");
     }
+
+
 
     @Test(groups = {"smoke", "ui"})
     public void TC_UI_009_AutoSuggestClickCheck() {

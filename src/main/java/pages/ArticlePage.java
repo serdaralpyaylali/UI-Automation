@@ -1,10 +1,12 @@
 package pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utilities.Driver;
 
 import java.time.Duration;
 import java.util.List;
@@ -26,6 +28,12 @@ public class ArticlePage {
     @FindBy(css = "#mw-content-text p")
     private List<WebElement> paragraphs;
 
+    @FindBy(id = "pt-sitesupport-2")
+    private WebElement donate;
+
+    @FindBy(id = "footer-places-about")
+    private WebElement about;
+
     public String getHeading() {
         return heading.getText();
     }
@@ -40,5 +48,16 @@ public class ArticlePage {
     public boolean isFirstParagraphVisible() {
         WebElement paragraph = getFirstNonEmptyParagraph();
         return paragraph.isDisplayed() && !paragraph.getText().trim().isEmpty();
+    }
+
+    public void clickOnDonate() {
+        donate.click();
+    }
+    public void clickOnAbout() {
+        about.click();
+    }
+    public void scrollToFooter() {
+        ((JavascriptExecutor) webDriver)
+                .executeScript("window.scrollTo(0, document.body.scrollHeight);");
     }
 }

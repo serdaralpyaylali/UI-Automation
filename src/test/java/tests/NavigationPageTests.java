@@ -24,10 +24,20 @@ public class NavigationPageTests {
 
     @Test(groups = {"smoke", "ui"})
     public void TC_UI_006_HeaderLinkTest() {
-
+        homePage.selectLanguage("en");
+        homePage.searchAndClick("Test Automation");
+        articlePage.clickOnDonate();
+        Assert.assertTrue(Driver.getWebDriver().getTitle().contains("donation"));
+        Assert.assertTrue(Driver.getWebDriver().getCurrentUrl().contains("/donate.wikimedia.org"));
     }
     @Test(groups = {"smoke", "ui"})
     public void TC_UI_011_FooterLinkTest() {
+        homePage.selectLanguage("en");
+        homePage.searchAndClick("Test Automation");
+        articlePage.scrollToFooter();
+        articlePage.clickOnAbout();
+        Assert.assertTrue(Driver.getWebDriver().getTitle().contains("About"));
+        Assert.assertTrue(Driver.getWebDriver().getCurrentUrl().contains("About"));
 
     }
 

@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class SearchResultsPage {
     private final WebDriver webDriver;
@@ -22,8 +23,15 @@ public class SearchResultsPage {
     @FindBy(css = "a.new")
     private WebElement result;
 
+    @FindBy(css = ".mw-search-results-container li")
+    private List<WebElement> searchresult;
+
     public String getResultText() {
         return result.getAttribute("title");
+    }
+
+    public int getSearchresultCount() {
+        return searchresult.size();
     }
 }
 
