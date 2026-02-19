@@ -9,7 +9,7 @@ import pages.HomePage;
 import pages.SearchResultsPage;
 import utilities.Driver;
 
-public class NavigationPageTests {
+public class NavigationPageTests extends BaseTest{
     private HomePage homePage;
     private ArticlePage articlePage;
     private SearchResultsPage searchResultsPage;
@@ -27,8 +27,8 @@ public class NavigationPageTests {
         homePage.selectLanguage("en");
         homePage.searchAndClick("Test Automation");
         articlePage.clickOnDonate();
-        Assert.assertTrue(Driver.getWebDriver().getTitle().contains("donation"));
-        Assert.assertTrue(Driver.getWebDriver().getCurrentUrl().contains("/donate.wikimedia.org"));
+        Assert.assertTrue(Driver.getWebDriver().getTitle().contains("donation"),"Title doesn't match");
+        Assert.assertTrue(Driver.getWebDriver().getCurrentUrl().contains("/donate.wikimedia.org"),"Donation page url is not correct");
     }
     @Test(groups = {"smoke", "ui"})
     public void TC_UI_011_FooterLinkTest() {

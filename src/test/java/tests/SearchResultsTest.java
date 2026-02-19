@@ -9,7 +9,7 @@ import pages.HomePage;
 import pages.SearchResultsPage;
 import utilities.Driver;
 
-public class SearchResultsTest {
+public class SearchResultsTest extends BaseTest{
     private HomePage homePage;
     private ArticlePage articlePage;
     private SearchResultsPage searchResultsPage;

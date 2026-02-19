@@ -8,7 +8,8 @@ import pages.HomePage;
 import pages.SearchResultsPage;
 import utilities.Driver;
 
-public class HomePageTests {
+public class HomePageTests extends BaseTest {
+
     private HomePage homePage;
     private ArticlePage articlePage;
     private SearchResultsPage searchResultsPage;
