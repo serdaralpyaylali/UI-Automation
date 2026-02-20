@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import pages.ArticlePage;
 import pages.HomePage;
 import pages.SearchResultsPage;
+import utilities.ConfigReader;
 import utilities.Driver;
 
 public class SearchResultsTest extends BaseTest{
@@ -16,7 +17,7 @@ public class SearchResultsTest extends BaseTest{
 
     @BeforeMethod
     public void setUp() {
-        Driver.getWebDriver().get("https://www.wikipedia.org/");
+        Driver.getWebDriver().get(ConfigReader.get("base_url"));
         homePage = new HomePage(Driver.getWebDriver());
         articlePage = new ArticlePage(Driver.getWebDriver());
         searchResultsPage = new SearchResultsPage(Driver.getWebDriver());
