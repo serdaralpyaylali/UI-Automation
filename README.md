@@ -38,21 +38,6 @@ The framework follows the **Page Object Model (POM)** design pattern to:
 
 ---
 
-## 📂 Project Structure
-
-src
-├── main
-│ ├── base
-│ ├── pages
-│ ├── utils
-│ └── config
-│
-└── test
-└── tests
-
-
----
-
 ## ✅ Test Strategy
 
 The automation framework includes:
