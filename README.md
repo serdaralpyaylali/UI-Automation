@@ -22,7 +22,7 @@ The purpose of this project is to demonstrate how to build a robust and scalable
 - Selenium WebDriver
 - Maven
 - Page Object Model (POM)
-- TestNG *(Update if you use JUnit instead)*
+- TestNG
 - GitHub Actions (CI Integration)
 
 ---
@@ -81,7 +81,7 @@ are handled through configuration files to support flexible execution across env
 
 Clone the repository:
 
-git clone <REPOSITORY_URL>
+git clone 
 
 
 Navigate into the project directory:
