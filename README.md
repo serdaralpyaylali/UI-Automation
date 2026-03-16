@@ -90,14 +90,6 @@ Tests are configured to run automatically via **GitHub Actions**:
 
 ---
 
-## 📌 Quality Standards
-
-All automation tasks follow the quality rules defined in:
-
-👉 `DEFINITION_OF_DONE.md`
-
----
-
 ## 🚀 Future Improvements
 
 - Cross-browser execution support
