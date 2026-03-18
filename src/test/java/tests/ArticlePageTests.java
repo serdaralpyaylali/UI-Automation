@@ -19,7 +19,7 @@ public class ArticlePageTests extends BaseTest {
 
     @BeforeMethod
     public void setUp() {
-        Driver.getWebDriver().get(ConfigReader.get("base_url"));
+        Driver.getWebDriver().get(ConfigReader.get("base.url"));
         homePage = new HomePage(Driver.getWebDriver());
         articlePage = new ArticlePage(Driver.getWebDriver());
         searchResultsPage = new SearchResultsPage(Driver.getWebDriver());

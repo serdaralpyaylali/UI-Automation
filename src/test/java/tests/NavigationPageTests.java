@@ -13,14 +13,12 @@ import utilities.Driver;
 public class NavigationPageTests extends BaseTest{
     private HomePage homePage;
     private ArticlePage articlePage;
-    private SearchResultsPage searchResultsPage;
 
     @BeforeMethod
     public void setUp() {
-        Driver.getWebDriver().get(ConfigReader.get("base_url"));
+        Driver.getWebDriver().get(ConfigReader.get("base.url"));
         homePage = new HomePage(Driver.getWebDriver());
         articlePage = new ArticlePage(Driver.getWebDriver());
-        searchResultsPage = new SearchResultsPage(Driver.getWebDriver());
     }
 
     @Test(groups = {"smoke", "ui"})
